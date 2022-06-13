@@ -9,9 +9,9 @@ dropdb:
 	docker exec -it my-postgres dropdb simple_bank
 connectdb:
 	docker exec -it my-postgres psql -U root 
-migrate-up:
+migrateup:
 	migrate -path db/migration -database "postgresql://root:secret@localhost:5400/simple_bank?sslmode=disable" -verbose up
-migrate-down:
+migratedown:
 	migrate -path db/migration -database "postgresql://root:secret@localhost:5400/simple_bank?sslmode=disable" -verbose down
 sqlc:
 	sqlc generate
