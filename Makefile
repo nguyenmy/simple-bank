@@ -17,4 +17,6 @@ sqlc:
 	sqlc generate
 test:
 	go test -v -cover ./...
-.PHONY: rm-postgres postgres createdb dropdb connectdb migrate-up migrate-down sqlc test
+run:
+	go run main.go
+.PHONY: rm-postgres postgres createdb dropdb connectdb migrate-up migrate-down sqlc test run
