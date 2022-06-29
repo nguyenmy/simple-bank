@@ -19,4 +19,6 @@ test:
 	go test -v -cover ./...
 run:
 	go run main.go
-.PHONY: rm-postgres postgres createdb dropdb connectdb migrate-up migrate-down sqlc test run
+mock:
+	mockgen -package mockdb -destination db/mock/store.go go-simple-bank/db/sqlc Store
+.PHONY: rm-postgres postgres createdb dropdb connectdb migrate-up migrate-down sqlc test run mock
